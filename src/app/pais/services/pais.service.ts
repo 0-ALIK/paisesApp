@@ -15,8 +15,17 @@ export class PaisService {
 
 
   public buscarPais (query: string): Observable<IPaisAPI[]> {
-
     const url: string = `${this.apiUrl}/name/${query}`;
+    return this.http.get<IPaisAPI[]>(url);
+  }
+
+  public buscarPaisRegion (query: string): Observable<IPaisAPI[]> {
+    const url: string = `${this.apiUrl}/region/${query}`;
+    return this.http.get<IPaisAPI[]>(url);
+  }
+
+  public buscarPaisCapital (query: string): Observable<IPaisAPI[]> {
+    const url: string = `${this.apiUrl}/capital/${query}`;
     return this.http.get<IPaisAPI[]>(url);
   }
 
