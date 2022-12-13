@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'region',
-    component: PorRegionComponent,
+    component: PorRegionComponent
   },
   {
     path: 'capital',
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'pais/:id',
-    component: VerPaisComponent,
+    component: VerPaisComponent
   },
   {
     path: '**',

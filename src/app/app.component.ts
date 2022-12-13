@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <section class="bg-slate-900 min-h-screen min-w-full">
 
-      <section class="container mx-auto min-h-screen pt-2 px-4 grid gap-2 grid-cols-5">
+      <section class="container mx-auto min-h-screen pt-2 px-4 sm:grid sm:gap-2 sm:grid-cols-5">
 
         <app-sidebar class="col-span-2 md:col-span-1 text-slate-50"></app-sidebar>
 

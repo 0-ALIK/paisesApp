@@ -29,4 +29,9 @@ export class PaisService {
     return this.http.get<IPaisAPI[]>(url);
   }
 
+  public getPaisById (query: string ): Observable<IPaisAPI> {
+    const url: string = `${this.apiUrl}/alpha/${query}`;
+    return this.http.get<IPaisAPI>(url);
+  }
+
 }
