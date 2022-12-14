@@ -5,10 +5,9 @@ import { Component } from '@angular/core';
   template: `
     <section class="bg-slate-900 min-h-screen min-w-full">
 
-      <section class="container mx-auto min-h-screen pt-2 px-4 sm:grid sm:gap-2 sm:grid-cols-5">
+      <section class="container mx-auto min-h-screen pt-2 px-4 flex flex-col sm:grid sm:gap-2 gap-6 sm:grid-cols-5">
 
         <app-sidebar class="col-span-2 md:col-span-1 text-slate-50"></app-sidebar>
-
 
         <article class="col-span-3 md:col-span-4 text-slate-50">
           <router-outlet></router-outlet>
