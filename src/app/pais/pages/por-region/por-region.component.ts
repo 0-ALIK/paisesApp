@@ -9,10 +9,11 @@ import { PaisService } from '../../services/pais.service';
     <h2 class="text-lg mt-2">Buscar país por región</h2>
     <hr class="my-4">
     <h2>Seleccione la región</h2>
-    <div class="flex gap-3">
+    <div class="flex gap-3 flex-wrap">
       <button
         *ngFor="let region of regiones"
-        class="bg-sky-500 hover:bg-sky-400 py-1 px-2 rounded-md"
+        class="app-list-item pt-0"
+        [class.app-list-item-active] = "region === termino"
         (click)="activarRegion( region )">{{region}}</button>
     </div>
     <div *ngIf="hayError" class="bg-red-600 lg:mx-auto font-bold p-2 rounded-md my-4">
@@ -42,9 +43,24 @@ export class PorRegionComponent {
   }
 
   public activarRegion(region: string): void {
+    if(this.termino !== region) this.buscar( region );
     this.termino = region;
   }
 
+  private buscar(termino: string): void {
+    this._hayError = false;
+    this.termino = termino;
 
+    this.paisService.buscarPaisRegion(this.termino).subscribe(
+      (paises: IPaisAPI[]) => {
+        this._paises = paises;
+      },
+      (error) => {
+        this._hayError = true;
+        this._paises = [];
+        console.log(error);
+      }
+    );
+  }
 
 }

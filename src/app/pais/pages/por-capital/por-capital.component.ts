@@ -8,7 +8,8 @@ import { PaisService } from '../../services/pais.service';
     <app-pais-buscador
       titleBuscador="Buscar por capital"
       descripBuscador="Realice una búsqueda por capital"
-      (onEnter)="buscar( $event )">
+      (onEnter)="buscar( $event )"
+      (onDebounce)="sugerencias( $event )">
     </app-pais-buscador>
     <div *ngIf="hayError" class="bg-red-600 lg:mx-auto font-bold p-2 rounded-md my-4">
       No se encontro nada con el término "{{termino}}"
@@ -44,5 +45,9 @@ export class PorCapitalComponent {
         console.log(error);
       }
     );
+  }
+
+  public sugerencias(termino: string): void {
+    this._hayError = false;
   }
 }
